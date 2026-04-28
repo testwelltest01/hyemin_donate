@@ -47,8 +47,8 @@ export default function App() {
   const currentTab = ['home', 'feed', 'profile'].includes(currentScreen) ? currentScreen : 'home';
 
   return (
-    <div className="min-h-screen bg-neutral-100 flex items-center justify-center p-4">
-      <div className="w-full max-w-[430px] h-[884px] bg-background shadow-2xl relative overflow-hidden rounded-[48px] border-[14px] border-neutral-950 ring-4 ring-neutral-800/30">
+    <div className="h-screen bg-neutral-100 flex items-center justify-center p-4 overflow-hidden">
+      <div className="h-full max-h-[calc(100dvh-2rem)] aspect-[9/19.5] max-w-[430px] bg-background shadow-2xl relative overflow-hidden rounded-[48px] border-[14px] border-neutral-950 ring-4 ring-neutral-800/30">
         {/* Notch / Dynamic Island */}
         <div className="absolute top-0 inset-x-0 h-7 bg-neutral-950 z-50 flex justify-center items-start pt-1 rounded-b-3xl w-36 mx-auto">
           <div className="w-3 h-3 rounded-full bg-neutral-900 mt-0.5 mr-2 border border-neutral-800/30"></div>
