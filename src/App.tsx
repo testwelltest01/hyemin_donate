@@ -73,7 +73,7 @@ export default function App() {
                 onBack={() => setCurrentScreen('home')}
               />
 
-              <main className="flex-1 overflow-y-auto pt-20 pb-24 px-5 no-scrollbar">
+              <main className="flex-1 overflow-y-auto pt-16 pb-20 px-4 no-scrollbar">
                 <div className="max-w-md mx-auto">
                   {currentScreen === 'home' && (
                     <HomeScreen onProjectClick={handleProjectClick} />
@@ -139,11 +139,11 @@ const OnboardingScreen = ({ onStart }: { onStart: () => void }) => (
           <Heart fill="#ff7f6b" stroke="none" size={24} />
           <span className="font-bold text-xl text-primary-container">GoodLoop</span>
         </div>
-        <h1 className="text-3xl font-bold leading-tight mb-4">
+        <h1 className="text-2xl font-bold leading-tight mb-3">
           가볍게 기부하고,<br />인증하며 함께<br />
           <span className="text-primary-container">변화를 만들어요</span>
         </h1>
-        <p className="text-on-surface-variant font-medium text-lg leading-relaxed">
+        <p className="text-on-surface-variant font-medium text-base leading-relaxed">
           작은 마음이 모여 만드는 큰 기적.<br />지금 바로 나만의 선순환을 시작해보세요.
         </p>
       </div>
@@ -161,7 +161,7 @@ const OnboardingScreen = ({ onStart }: { onStart: () => void }) => (
 
       <button 
         onClick={onStart}
-        className="w-full py-5 bg-primary-container text-white font-bold text-xl rounded-[20px] shadow-warm flex items-center justify-center gap-2"
+        className="w-full py-4 bg-primary-container text-white font-bold text-lg rounded-[20px] shadow-warm flex items-center justify-center gap-2"
       >
         시작하기 <ArrowRight size={24} />
       </button>
@@ -172,8 +172,8 @@ const OnboardingScreen = ({ onStart }: { onStart: () => void }) => (
 const HomeScreen = ({ onProjectClick }: { onProjectClick: (p: Project) => void }) => (
   <div className="space-y-8 py-4">
     <div>
-      <h2 className="text-3xl font-bold tracking-tight mb-2">Discover Projects</h2>
-      <p className="text-on-surface-variant font-medium">Find a cause you care about and help make it happen.</p>
+      <h2 className="text-2xl font-bold tracking-tight mb-1">Discover Projects</h2>
+      <p className="text-on-surface-variant font-medium text-sm">Find a cause you care about and help make it happen.</p>
     </div>
 
     <div className="space-y-8">
@@ -193,8 +193,8 @@ const HomeScreen = ({ onProjectClick }: { onProjectClick: (p: Project) => void }
             </div>
           </div>
           <div className="p-6">
-            <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-            <p className="text-on-surface-variant text-sm line-clamp-2 mb-4 leading-relaxed">{project.description}</p>
+            <h3 className="text-lg font-bold mb-1">{project.title}</h3>
+            <p className="text-on-surface-variant text-xs line-clamp-2 mb-3 leading-relaxed">{project.description}</p>
             
             <div className="flex justify-between items-end mb-3">
               <span className="text-xs font-bold text-on-surface-variant">현재 {Math.round((project.currentAmount / project.targetAmount) * 100)}% 완성</span>
@@ -225,7 +225,7 @@ const DetailScreen = ({ project, onDonate }: { project: Project; onDonate: () =>
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
       <div className="absolute bottom-6 left-6 right-6 text-white">
         <span className="text-xs font-bold tracking-widest opacity-80 uppercase">{project.category}</span>
-        <h2 className="text-2xl font-bold mt-2 leading-tight">{project.title}</h2>
+        <h2 className="text-xl font-bold mt-1 leading-tight">{project.title}</h2>
       </div>
     </div>
 
@@ -236,7 +236,7 @@ const DetailScreen = ({ project, onDonate }: { project: Project; onDonate: () =>
       <h3 className="text-lg font-bold mb-4">Current Progress</h3>
       <div className="flex justify-between items-end mb-3">
         <div>
-          <span className="text-2xl font-bold text-primary-container">${project.currentAmount.toLocaleString()}</span>
+          <span className="text-xl font-bold text-primary-container">${project.currentAmount.toLocaleString()}</span>
           <span className="text-xs font-semibold text-on-surface-variant ml-1">raised</span>
         </div>
         <span className="text-xs font-bold text-on-surface-variant">Goal: ${project.targetAmount.toLocaleString()}</span>
@@ -258,7 +258,7 @@ const DetailScreen = ({ project, onDonate }: { project: Project; onDonate: () =>
         </span>
         Why It's Needed
       </h3>
-      <p className="text-on-surface-variant leading-relaxed text-lg">{project.whyNeeded}</p>
+      <p className="text-on-surface-variant leading-relaxed text-base">{project.whyNeeded}</p>
       <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800" className="w-full h-48 object-cover rounded-xl mt-4" alt="Impact" />
     </section>
     
@@ -266,7 +266,7 @@ const DetailScreen = ({ project, onDonate }: { project: Project; onDonate: () =>
       <div className="max-w-2xl mx-auto">
         <button 
           onClick={onDonate}
-          className="w-full py-5 bg-primary-container text-white font-bold text-xl rounded-xl shadow-warm flex items-center justify-center gap-2"
+          className="w-full py-4 bg-primary-container text-white font-bold text-lg rounded-xl shadow-warm flex items-center justify-center gap-2"
         >
           기부하기 <Heart size={20} fill="currentColor" />
         </button>
@@ -292,7 +292,7 @@ const DonateScreen = ({ project, amount, onSelectAmount, onCancel, onConfirm }: 
     
     <main className="flex-grow p-6 pt-24 overflow-y-auto">
       <div className="max-w-md mx-auto">
-        <h2 className="text-2xl font-bold mb-2">Choose an amount</h2>
+        <h2 className="text-xl font-bold mb-1">Choose an amount</h2>
         <p className="text-on-surface-variant font-medium mb-8">Your contribution creates real impact.</p>
 
         <div className="bg-surface-container-low rounded-2xl p-4 flex items-center mb-8 border border-surface-container-high">
@@ -315,7 +315,7 @@ const DonateScreen = ({ project, amount, onSelectAmount, onCancel, onConfirm }: 
               }`}
             >
               <div className="flex justify-between items-center mb-2">
-                <span className={`text-xl font-bold ${amount === val ? 'text-primary' : 'text-on-surface'}`}>{val.toLocaleString()}원</span>
+                <span className={`text-lg font-bold ${amount === val ? 'text-primary' : 'text-on-surface'}`}>{val.toLocaleString()}원</span>
                 <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center ${amount === val ? 'border-primary-container bg-primary-container' : 'border-surface-container-high'}`}>
                   {amount === val && <Check size={14} color="white" />}
                 </div>
@@ -329,7 +329,7 @@ const DonateScreen = ({ project, amount, onSelectAmount, onCancel, onConfirm }: 
 
         <button 
           onClick={onConfirm}
-          className="w-full py-5 bg-primary-container text-white font-bold text-xl rounded-full shadow-warm flex items-center justify-center gap-2 mt-auto"
+          className="w-full py-4 bg-primary-container text-white font-bold text-lg rounded-full shadow-warm flex items-center justify-center gap-2 mt-auto"
         >
           결제하기 <ArrowRight size={20} />
         </button>
@@ -349,8 +349,8 @@ const SuccessScreen = ({ onFinish }: { onFinish: () => void }) => (
         <div className="w-24 h-24 bg-primary-container/20 rounded-full flex items-center justify-center mx-auto mb-6 text-primary-container">
           <Heart size={48} fill="currentColor" />
         </div>
-        <h1 className="text-3xl font-bold mb-2">Thank You!</h1>
-        <p className="text-on-surface-variant text-lg font-medium">Your contribution makes a real difference.<br />Let's capture this moment.</p>
+        <h1 className="text-2xl font-bold mb-1">Thank You!</h1>
+        <p className="text-on-surface-variant text-base font-medium">Your contribution makes a real difference.<br />Let's capture this moment.</p>
       </div>
 
       <div className="bg-white rounded-3xl p-8 border border-surface-container-high shadow-warm relative overflow-hidden flex-grow flex flex-col">
